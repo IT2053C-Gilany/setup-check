@@ -127,6 +127,24 @@ After setting up the environment, you can verify everything is working correctly
    python setup-checker.py
    ```
 
+**Note**: The verification scripts check for dependencies without importing them, so they're safe to run even if some packages have issues.
+
+### Making Scripts Executable
+
+**On macOS/Linux:**
+If you get a "Permission denied" error when running the shell script, make it executable:
+```bash
+chmod +x scripts/setup.sh
+```
+
+**On Windows:**
+- **Command Prompt/PowerShell**: No special permissions needed, scripts run directly
+- **Git Bash/WSL**: Use the same `chmod +x` command as on macOS/Linux
+- **If you get execution policy errors in PowerShell**, run:
+  ```powershell
+  Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+  ```
+
 ### Expected Results
 Both methods should show an output like this:
 ![Setup Checker Output](./assets/setup-checker-output.png)
@@ -184,12 +202,12 @@ If the notebook shows errors or wrong Python version:
 
 ## Files
 
-- `environment.yml` - Conda environment specification
-- `scripts/setup.py` - Cross-platform setup script (works everywhere)
-- `scripts/setup.sh` - Unix/macOS/Git Bash setup script
+- `environment.yml` - Conda environment specification with all required packages
+- `scripts/setup.py` - Cross-platform Python setup script (works on all platforms)
+- `scripts/setup.sh` - Unix/macOS/Linux setup script (requires chmod +x)
 - `scripts/setup.bat` - Windows Command Prompt/PowerShell setup script
-- `setup-checker.ipynb` - Jupyter notebook for verification
-- `setup-checker.py` - Environment verification script
+- `setup-checker.ipynb` - Jupyter notebook for environment verification
+- `setup-checker.py` - Python script for environment verification (auto-generated from notebook)
 
 ## Requirements
 
