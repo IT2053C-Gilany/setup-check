@@ -1,3 +1,13 @@
+# IT2053C Environment Configuration
+# 
+# USAGE INSTRUCTIONS:
+# - To create this environment: conda env create -f environment.yml
+# - To activate manually: conda activate IT2053C
+# - To deactivate: conda deactivate
+# - To update environment: conda env update -f environment.yml
+#
+# NOTE: This environment will NOT auto-activate. Use 'conda activate IT2053C' when needed.
+#
 name: IT2053C
 channels:
   - conda-forge
